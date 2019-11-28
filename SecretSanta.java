@@ -46,8 +46,6 @@ public class SecretSanta {
                 humanToSanta.put(human, santa);
             }
         }
-        System.out.println(participants);
-        System.out.println(santaToHuman);
     }
 
 
