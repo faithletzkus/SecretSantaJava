@@ -48,28 +48,25 @@ public class SecretSanta {
         for (String santa : participants) {
             remainingHumans.add(santa);
         }
-
+        String lastSanta = participants.get(participants.size() - 1);
         for (String santa : participants) {
             String human = "";
-            String lastSanta = participants.get(participants.size() - 1);
+            if (remainingHumans.size() == 1) {
+                human = remainingHumans.get(0);
+            }
             //if there are two remaining humans and oen of the remaining is the last Santa, that Santa cannot have themselves,
             //so the second-to-last Santa must have the last Santa as their human
-            if (remainingHumans.size() == 2 && remainingHumans.contains(lastSanta)) {
+            else if (remainingHumans.size() == 2 && remainingHumans.contains(lastSanta)) {
                 human = lastSanta;
                 remainingHumans.remove(lastSanta);
             }
             else {
-                if (remainingHumans.size() == 1) {
-                    human = remainingHumans.get(0);
-                }
-                else {
-                    while (true) { //randomly select next human from the remaining Santas
-                        int randomIndex = (int) (Math.random() * remainingHumans.size());
-                        human = remainingHumans.get(randomIndex);
-                        if (!human.equals(santa) && !santaToHuman.containsValue(human)) {
-                            remainingHumans.remove(human);
-                            break;
-                        }
+                while (true) { //randomly select next human from the remaining Santas
+                    int randomIndex = (int) (Math.random() * remainingHumans.size());
+                    human = remainingHumans.get(randomIndex);
+                    if (!human.equals(santa) && !santaToHuman.containsValue(human)) {
+                        remainingHumans.remove(human);
+                        break;
                     }
                 }
             }
