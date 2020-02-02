@@ -37,7 +37,7 @@ public class SecretSanta {
      * SantaToHuman = {a=b, b=a, c=d, d=c}
      * This solution is comprised of two subgroups where the first person is the Santa of the second and the second is the Santa first.
      * I allow this to happen because it closer to a truly random solution.
-     * However, it can cause a problem if there are an odd number because the last person cannot have themselves.
+     * However, it can cause a problem because the last person cannot have themselves.
      * I solve for this with the remainingHumans list:
      *     If there are two remaining humans and one of the remaining is the last Santa, that Santa cannot have themselves,
      *     so the second-to-last Santa must have the last Santa as their human
