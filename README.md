@@ -21,12 +21,6 @@ My solution allows for solutions such as
 
 This solution is comprised of two subgroups where the first person is the Santa of the second, and the second is the Santa first.
 I allow this to happen because it is closer to a truly random solution and most similar to the original hat-drawing method.
-
-However, it can cause a problem if there are an odd number because the last person cannot have themselves.
-I solve for this with the remainingHumans list:
-
-- If there are two remaining humans and one of the remaining is the last Santa, that Santa cannot have themselves,
-- so the second-to-last Santa must have the last Santa as their human
      
 Another way I could have solved the Secret Santa problem would be to have a full list of participants and an empty list of Santas, randomly select one participant from the original list each time, remove them from that list and add them to the Santa list. Then, each node in the Santa list would point to its Human and would be pointed to by its Santa. Once all participants were added to the Santa list, the last Santa in the Santa list would point to the first Node, creating a loop.
 I did not solve it this way because this solution does not allow for subgroups (the first person is the Santa of the second and the second is the Santa first), which I think are an important and fun part of the Secret Santa solution.
@@ -75,9 +69,21 @@ Generate new solution, when clicked, runs the solution generating code. This mea
 ## Test cases
 I created three JUnit tests to test different aspects of my program in SecretSantaTester.java
 
-1. testCorrectSolutionSize tests that the number of entries in the solution map is equal to the number of participants
-1. testGenerateNewSantaSolution tests that Santa Solutions are being generated properly. That is, it does not come up with more solutions than what are possible, and it comes up with all possible solutions. To accomplish this, I had to figure out exactly how many possible solutions there are to the Secret Santa problem. For this, I learned about derangements in math, which you can also learn about by simple searching for Secret Santa derangement. The equation is ( n-1 )*( D(n-1) + D(n-2) ) which I implemented recursively in possibleSolutions().
-1. testGenerateParticipantsList tests the participants lists of all participants are getting generated properly. That is, they contain all of the participants and the lsit is nicely formatted.
+### testCorrectSolutionSize 
+- Tests that the number of entries in the solution map is equal to the number of participants
+
+### testGenerateNewSantaSolution
+- Tests that Santa Solutions are being generated properly. That is:
+    - it does not come up with more solutions than what are possible
+    - it comes up with all possible solutions
+- To accomplish this, I had to figure out exactly how many possible solutions there are to the Secret Santa problem. For this, I learned about derangements in math, which you can also learn about by simple searching for Secret Santa derangement. The equation is 
+
+    ( n-1 )*( D(n-1) + D(n-2) )
+
+which I implemented recursively in possibleSolutions().
+
+### testGenerateParticipantsList 
+- Tests the participants list to confirm that the participants list contains all of the participants and the list is nicely formatted.
     
     
 
