@@ -76,7 +76,8 @@ I created three JUnit tests to test different aspects of my program in SecretSan
 - Tests that Santa Solutions are being generated properly. That is:
     - it does not come up with more solutions than what are possible
     - it comes up with all possible solutions
-- To accomplish this, I had to figure out exactly how many possible solutions there are to the Secret Santa problem. For this, I learned about derangements in math, which you can also learn about by simple searching for Secret Santa derangement. The equation is 
+- *Note: I did this on participant groups of size 3-8 (up to 8, because that is all my computer could handle)
+- To accomplish the tests in testGenerateNewSantaSolution, I had to figure out exactly how many possible solutions there are to the Secret Santa problem. For this, I learned about derangements in math, which you can also learn about by simple searching for Secret Santa derangement. The equation is 
 
     ( n-1 )*( D(n-1) + D(n-2) )
 
